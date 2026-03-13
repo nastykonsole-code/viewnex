@@ -86,12 +86,11 @@ trackChannel.addEventListener('click', async function() {
     view.appendChild(viewh2v);
     bottomContRS.appendChild(view);
 
-    // FIX: getFullYear() was missing parentheses — caused NaN in totalMonths
+    // Videos
     const createdAt = new Date(channelInfo.snippet.publishedAt);
     const now = new Date();
     const totalMonths = (now.getFullYear() - createdAt.getFullYear()) * 12 + (now.getMonth() - createdAt.getMonth());
 
-    // Videos
     const video = document.createElement('div');
     video.classList.add('small-cont-div');
 
@@ -105,17 +104,19 @@ trackChannel.addEventListener('click', async function() {
     video.appendChild(videoh2v);
     bottomContRS.appendChild(video);
 
-    // --- Fetch uploads playlist ID (costs 1 quota unit, no search needed) ---
+    // --- Fetch uploads playlist ID ---
     const channelDetailsUrl = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelInfo.id}&key=${API_KEY}`;
     const channelDetailsResponse = await fetch(channelDetailsUrl);
     const channelDetailsData = await channelDetailsResponse.json();
 
     if (!channelDetailsData.items || channelDetailsData.items.length === 0) {
-        console.log("error");
+        console.log("error fetching contentDetails");
         return;
     }
 
     const contentDetails = channelDetailsData.items[0].contentDetails;
+    const uploadsPlaylistId = contentDetails.relatedPlaylists.uploads;
+
     // --- Fetch latest videos from uploads playlist ---
     const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=10&key=${API_KEY}`;
     const playlistResponse = await fetch(playlistUrl);
@@ -136,12 +137,18 @@ trackChannel.addEventListener('click', async function() {
     const sortedVideos = videoDUData.items.sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt));
 
     // Pick latest full-length video (>=100s)
-    const latestVideo = sortedVideos.find(video => {
+    let latestVideo = null;
+    for (let i = 0; i < sortedVideos.length; i++) {
+        const video = sortedVideos[i];
         const duration = video.contentDetails.duration;
         const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
         const seconds = (+match[1] || 0) * 3600 + (+match[2] || 0) * 60 + (+match[3] || 0);
-        return seconds >= 100;
-    });
+
+        if (seconds >= 100) {
+            latestVideo = video;
+            break;
+        }
+    }
 
     if (!latestVideo) {
         console.log("No full-length video found");
@@ -151,27 +158,23 @@ trackChannel.addEventListener('click', async function() {
     const latestVideoId = latestVideo.id;
     const videoTitle = latestVideo.snippet.title;
     const thumbnail = latestVideo.snippet.thumbnails.high.url;
-    const views2 = latestVideo.statistics.viewCount;
-    const likes = latestVideo.statistics.likeCount;
     const latestVideoUrl = `https://www.youtube.com/watch?v=${latestVideoId}`;
-    
 
+    // --- Display latest video ---
     const latestVideoSection = document.createElement('div');
     latestVideoSection.classList.add('small-cont-divyt');
     bottomContRS.appendChild(latestVideoSection);
-
 
     const lVSlink = document.createElement('a');
     lVSlink.href = latestVideoUrl;
     lVSlink.target = "_blank";
 
-
     const lVSThumbnail = document.createElement('img');
     lVSThumbnail.src = thumbnail;
     lVSThumbnail.classList.add('thumbnail');
-    
+
     lVSlink.appendChild(lVSThumbnail);
-    latestVideoSection.append(lVSlink);
+    latestVideoSection.appendChild(lVSlink);
 
     const videoInfo = document.createElement('div');
     videoInfo.classList.add('video-info');
@@ -180,14 +183,6 @@ trackChannel.addEventListener('click', async function() {
     const lVSTitle = document.createElement('h3');
     lVSTitle.textContent = videoTitle;
     videoInfo.appendChild(lVSTitle);
-
-    const lVSLikes = document.createElement('h4');
-    lVSLikes.textContent = "Likes: " + likes;
-    videoInfo.appendChild(lVSLikes);
-
-    const lVSViews = document.createElement('h4');
-    lVSViews.textContent = "Views: " + views2;
-    videoInfo.appendChild(lVSViews);
 
     console.log("Latest video chosen:", videoTitle);
 });
