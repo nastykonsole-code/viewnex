@@ -110,8 +110,12 @@ trackChannel.addEventListener('click', async function() {
     const channelDetailsResponse = await fetch(channelDetailsUrl);
     const channelDetailsData = await channelDetailsResponse.json();
 
-    const uploadsPlaylistId = channelDetailsData.items[0].contentDetails.relatedPlaylists.uploads;
+    if (!channelDetailsData.items || channelDetailsData.items.length === 0) {
+        console.log("error");
+        return;
+    }
 
+    const contentDetails = channelDetailsData.items[0].contentDetails;
     // --- Fetch latest videos from uploads playlist ---
     const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=10&key=${API_KEY}`;
     const playlistResponse = await fetch(playlistUrl);
