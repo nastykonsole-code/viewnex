@@ -22,4 +22,4 @@ The project is currently in **beta**, so some bugs may occur. The full release i
 
 ---
 
-*Edited: March 14, 2026*
+*Edited: March 14, 2026*# smT.v2
