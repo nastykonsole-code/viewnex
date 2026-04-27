@@ -1,0 +1,42 @@
+.detailedData {
+    background-color: #99000fee;
+    display: flex;
+    flex-direction: row;
+    padding: 2.5%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    border-radius: 15px;
+}
+
+.dDLeft, .dDRight {
+    width: 48%;
+}
+
+.descriptionTitleDiv {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.descriptionContentDiv {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.statDiv {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.statDiv h4 {
+    font-size: 16px;
+}
+
+.statDiv p {
+    margin-top: -1.5%;
+    font-size: 14px;
+}

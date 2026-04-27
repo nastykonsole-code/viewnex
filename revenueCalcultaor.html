@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Calculator</title>
+    <link rel="stylesheet" href="stylesbase.css">
+    <link rel="preconnect" href="
+https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="viewnex.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b160e75569.js" crossorigin="anonymous"></script>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Calculator</title>
+    <link rel="icon" type="image/png" href="viewnex.png">
+    <script src="https://kit.fontawesome.com/b160e75569.js" crossorigin="anonymous"></script>
+
+    <!-- CALCULATOR STYLES -->
+    <style>
+        #calculatorSection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        #settings, #estimates {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            font-family: "Roboto", sans-serif;
+        }
+
+        #settings h1, #estimates h1 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        #settings input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        #settings input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+        }
+
+        #estimates div {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        #estimates div:hover {
+            transform: translateY(-2px);
+            background: #f3f4f6;
+            cursor: pointer;
+        }
+
+        #estimates h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #16a34a;
+            margin: 0;
+        }
+
+        #estimates h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+        @media (max-width: 800px) {
+            #calculatorSection {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="name">
+            <a href="index.html"><p>viewnex</p></a>
+        </div>
+        <div id="qAndA">
+            <a href="qanda.html"><p>Q&A</p></a>
+        </div>
+    </header>
+    
+    <div id="littleDesc">
+        <div id="topSectionLD">
+            <h1>Revenue Calculator</h1>
+        </div>
+        <div id="bottomSectionLD" class="bottomSectionLDTemp">
+            <p>Estimated YouTube Money Calculator</p>
+        </div>
+    </div>
+    <main>
+
+        <div id="calculatorSection" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: black;">
+            <div id="settings">
+
+            </div>
+            <div id="estimates">
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div id="sec1">
+            <div id="nameAndLogo">
+                <img id="logoId" src="viewnex.png">
+                <a href="index.html">
+                    <p>viewnex</p>
+                </a>
+            </div>
+
+            <p>Copyright ©viewnex 2026</p>
+            <button id="contactSupport">Support</button>
+        </div>
+        <div id="sec2">
+            <p id="secTitle">Social Media:</p>
+            <div id="links">
+                <a href="https://www.youtube.com/@adrian_x_dev"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/adrianxdev/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/nastyKonsole"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div id="sec3">
+            <p id="secTitle">More pages:</p>
+            <div>
+                <a href="qanda.html">Q&A</a><br>
+            </div>
+            <div>
+                <a href="aboutUs.html">About Us</a><br>
+            </div>
+            <div>
+                <a href="revenueCalcultaor.html">Revenue calculator</a><br>
+            </div>
+        </div>
+    </footer>
+    <script src="revenueCalculator.js"></script>
+</body>
+</html>

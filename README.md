@@ -23,10 +23,10 @@ The project is currently in **beta**, so some bugs may occur. The full release i
 5. **Enhance channel input placeholder**  
    Make the placeholder more interactive and helpful for users.
 
-6. **Make a page for qurstions.** <br>
+6. **Make a page for questions.** <br>
    Make a page for questions that user may or not ask.
 
-7. **Develope the mobile version.** <br>
+7. **Develop the mobile version.** <br>
    Make aversion for mobile browsers.
 
 8. **Make the API key secret.** <br>
@@ -35,3 +35,4 @@ The project is currently in **beta**, so some bugs may occur. The full release i
 9. **Update the last 10 videos section.** <br>
    Make a more clean design for the last 10 video section.
 ---
+# viewnex

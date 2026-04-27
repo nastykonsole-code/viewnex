@@ -1,0 +1,131 @@
+.videoSection { 
+    margin: 2.5%; 
+    width: 95%; 
+    display: flex;
+    flex-direction: column;
+    background-color: #99000fd5;
+    padding-bottom: 1.5%; 
+    border-radius: 20px; 
+}
+
+.videoHeaderSection { 
+    height: 80px; 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    background-color: #99000fee; 
+    margin-bottom: 1.5%; 
+}
+
+.videoHeaderSection h3 {
+    font-size: 20px;
+}
+
+/* LIST */
+.videoListSection { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* CARD */
+.vLSElement { 
+    min-height: 120px;
+    width: 90%; 
+    border-radius: 10px; 
+    margin-left: 5%; 
+    margin-bottom: 1%; 
+    padding: 16px; 
+    background-color: white; 
+    color: black; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 15px;
+    transition: 0.2s ease;
+}
+
+.vLSElementBigger { 
+    min-height: 240px;
+    width: 90%;
+}
+
+/* THUMBNAIL */
+.thumbnail { 
+    height: 90px; 
+    border-radius: 6px; 
+}
+
+/* TEXT */
+.partText { 
+    width: 40%; 
+    text-align: center; 
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* BUTTON */
+.partButton { 
+    width: 8%; 
+}
+
+.moreData {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    border: none;
+    background: #99000fee;
+    color: white;
+    font-size: 16px;
+}
+
+/* SELECT */
+.select {
+    width: 120px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: #99000fee;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
+    position: absolute;
+    top: 110%;
+    width: 120px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 900px) {
+    .vLSElement { 
+        min-height: 150px; 
+    }
+
+    .thumbnail { 
+        height: 120px; 
+    }
+
+    .partText {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .vLSElement { 
+        min-height: 180px; 
+    }
+
+    .thumbnail { 
+        height: 150px; 
+    }
+
+    .partText {
+        font-size: 18px;
+    }
+}

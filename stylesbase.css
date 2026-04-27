@@ -1,8 +1,6 @@
 * {
     box-sizing: border-box;
-    
 }
-
 
 html, body {
     height: 100%;
@@ -16,7 +14,6 @@ body {
     overflow-x: hidden;
     background-color: rgb(235, 235, 235);
     color: white;
-
     display: flex;
     flex-direction: column;
 }
@@ -25,6 +22,7 @@ main {
     flex: 1;
 }
 
+/* Links & Buttons */
 a {
     text-decoration: none;
     color: white;
@@ -36,22 +34,18 @@ a:hover, button:hover {
     font-weight: 700;
 }
 
-
-
-/* Header */
+/* ==================== HEADER ==================== */
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 70px; 
-    color: white;
+    height: 70px;
     background-color: #83000d;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;
     z-index: 10;
 }
 
@@ -62,14 +56,15 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 #trackIt {
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
+/* Search Input */
 #channelInput {
     width: 400px;
     background-color: white;
@@ -79,7 +74,6 @@ header {
     border-radius: 7px;
     height: 25px;
 }
-
 
 #searchChannel {
     background-color: white;
@@ -92,20 +86,19 @@ header {
 
 #searchChannel:hover {
     background-color: #ffffffd7;
-    cursor: pointer;
 }
 
-/* Little desc*/
-
-
-
+/* ==================== LITTLE DESC ==================== */
 #littleDesc {
     width: 100%;
     height: 200px;
-    background-color: #99000f;
+    background-color: #99000fee;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-
 
 #topSectionLD {
     display: flex;
@@ -116,9 +109,9 @@ header {
     text-align: center;
 }
 
-.bottomSectionLDTemp {
-    align-items: center;
-    justify-content: center;
+#topSectionLD h1 {
+    font-size: 28px;
+    margin: 0;
 }
 
 #bottomSectionLD {
@@ -126,55 +119,14 @@ header {
     height: 50px;
     width: 100%;
     background-color: #83000d5d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-@media screen and (min-width: 900px)  {
-    
-    #littleDesc {
-        height: 275px;
-    }
-    #topSectionLD {
-        height: 200px;
-    }
-    #bottomSectionLD {
-        height: 75px;
-    }
-}
-
-@media screen and (min-width: 1400px) {
-    body {
-        margin-top: 70px;
-    }
-    #littleDesc {
-        height: 350px;
-    }
-    #topSectionLD {
-        height: 260px;
-    }
-    #bottomSectionLD {
-        height: 90px;
-    }
-    #channelInput {
-        width: 600px;
-        height: 35px;
-    }
-    #searchInput {
-        width: 600px;
-        height: 35px;
-    }
-    #searchChannel {
-        height: 35px;
-        width: 35px;
-    }
-}
-    
-
-
-/* Footer Section */
 
 footer {
     width: 100%;
-    height: 200px; 
+    height: 200px;
     background-color: #83000d;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -182,23 +134,10 @@ footer {
     padding: 2%;
 }
 
-
 #nameAndLogo {
     display: flex;
     align-items: center;
     font-size: 15px;
-}
-#contactSupport {
-    color: white;
-    background-color: #b20213; 
-    border: none;
-    width: 50%;
-    height: 20px;
-    border-radius: 15px;
-    transition: 0.2s linear;
-}
-#contactSupport:hover {
-    transform: scale(1.2);
 }
 
 #logoId {
@@ -207,15 +146,29 @@ footer {
     margin-right: 10px;
 }
 
+#contactSupport {
+    color: white;
+    background-color: #b20213;
+    border: none;
+    width: 50%;
+    height: 20px;
+    border-radius: 15px;
+    transition: 0.2s linear;
+}
+
+#contactSupport:hover {
+    transform: scale(1.2);
+}
+
 #secTitle {
     font-size: 15px;
 }
-
 
 .fa-brands {
     font-size: 20px;
     transition: 0.2s;
 }
+
 .fa-brands:hover {
     transform: scale(1.2);
 }
@@ -231,13 +184,64 @@ footer {
     margin-top: 2.5%;
 }
 
+
+#QandA {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    width: 90%;
+    margin-left: 5%;
+    min-height: 900px;
+    background-color: #fffbfc;
+    border-radius: 2.5%;
+    color: black;
+    padding: 25px;
+}
+
+
 @media screen and (max-width: 768px) {
     header, footer {
         font-size: 13px;
     }
-
     #channelInput {
-        width:200px;
+        width: 200px;
         border-radius: 5px;
+    }
+    #topSectionLD h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #littleDesc {
+        height: 275px;
+    }
+    #topSectionLD {
+        height: 200px;
+    }
+    #bottomSectionLD {
+        height: 75px;
+    }
+    #channelInput {
+        width: 500px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #littleDesc {
+        height: 350px;
+    }
+    #topSectionLD {
+        height: 260px;
+    }
+    #bottomSectionLD {
+        height: 90px;
+    }
+    #channelInput {
+        width: 600px;
+        height: 35px;
+    }
+    #searchChannel {
+        height: 35px;
+        width: 35px;
     }
 }
